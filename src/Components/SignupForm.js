@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
@@ -50,10 +51,6 @@ function SignupForm() {
       toast.error("Passwords Do Not Match")
       return
     }
-    const signupData = {
-      ...formData,
-      // accountType,
-    }
 
 //     // Setting signup data to state
 //     // To be used after otp verification
@@ -68,6 +65,13 @@ function SignupForm() {
       confirmPassword: "",
     })
 //     setAccountType(ACCOUNT_TYPE.STUDENT)
+
+axios.post("http://localhost:4000/signup",{formData}).then((result) => {
+  console.log(result);
+}).catch((err) => {
+  console.log(err);
+});
+
    }
 
 //   // data to pass to Tab component
