@@ -13,7 +13,7 @@ const { auth } = require("../middlewares/auth")
 
 
 // Route for user signup
-router.post("/signup", signup)
+// router.post("/signup", signup)
 
 
 

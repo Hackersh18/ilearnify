@@ -96,6 +96,7 @@ axios.post("http://localhost:4000/signup",{formData}).then((result) => {
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
         <div className="flex gap-x-4">
           <label>
+            <p  className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
               First Name <sup className="text-pink-200">*</sup>
             </p>

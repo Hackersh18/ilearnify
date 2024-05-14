@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 // Image and Video Import
 // Component Imports
 import CTAButton from "./Btn.js"
+import Footer from "./Footer.js"
 import TimelineSection from "./TimelineSection.js"
 import LearningLanguageSection from "./LearningLanguageSection.js"
 import InstructorSection from "./InstructorSection.js"
@@ -109,7 +110,7 @@ function HomePage() {
       </div>
 
       {/* Footer */}
-      {/* <Footer /> */}
+      <Footer/>
     </div>
   )
 }
