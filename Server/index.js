@@ -72,7 +72,47 @@ app.post("/signup", async (req,res)=>{
         res.status(400).send(error);
     }
 });
+app.post("/login", async(req,res)=>{
+    try{
+        // Get email and password from request body
+        const { email, password } = req.body
 
+        // Check if email or password is missing
+        if (!email || !password) {
+            // Return 400 Bad Request status code with error message
+            return res.status(400).json({
+                success: false,
+                message: `Please Fill up All the Required Fields`,
+            })
+        }
+        const useremail= await user.findOne({email:email})
+        if (!useremail) {
+            // Return 401 Unauthorized status code with error message
+            return res.status(401).json({
+                success: false,
+                message: `User is not Registered with Us Please SignUp to Continue`,
+            })
+        }
+        if(useremail.password==password){
+            res.status(200).json({
+                success: true,
+                message: `User Login Success`,
+            })
+        }else{
+            return res.status(401).json({
+                success: false,
+                message: `Password is incorrect`,
+            })
+        }
+    }catch(error){
+        console.error(error)
+        // Return 500 Internal Server Error status code with error message
+        return res.status(500).json({
+            success: false,
+            message: `Login Failure Please Try Again`,
+        })
+    }
+});
 
 
 
