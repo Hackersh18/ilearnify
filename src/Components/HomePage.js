@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 // Image and Video Import
 // Component Imports
 import CTAButton from "./Btn.js"
+import Footer from "./Footer.js"
 
 function HomePage() {
   return (
@@ -178,7 +179,7 @@ function HomePage() {
       </div>
 
       {/* Footer */}
-      {/* <Footer /> */}
+      <Footer/>
     </div>
   )
 }
