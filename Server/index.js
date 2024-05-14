@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const userRoutes = require("./routes/user.js");
 const dotenv = require("dotenv");
 // const userRoutes = require("./routes/User");
 // const profileRoutes = require("./routes/Profile");
@@ -43,7 +44,7 @@ cloudinaryConnect();
 
 
 //routes
-// app.use("/api/v1/auth", userRoutes);
+//	app.use("/api/v1/auth", userRoutes);
 // app.use("/api/v1/profile", profileRoutes);
 // app.use("/api/v1/course", courseRoutes);
 // app.use("/api/v1/payment", paymentRoutes);
@@ -51,6 +52,27 @@ cloudinaryConnect();
 
 //def route
 
+app.post("/signup", async (req,res)=>{
+    try{
+        const password= req.body.password;
+        const cpassword= req.body.confirmPassword;
+        if(password==cpassword){
+            const User=new user({
+                firstname:req.body.firstname,
+                lastname:req.body.lastname,
+                email:req.body.email,
+                password:req.body.password,
+                confirmpassword:req.body.confirmpassword
+            })
+            const register=await User.save()
+            res.status(201).render("index");
+        }else{
+            res.send("password is not matching") 
+        } 
+    }catch(error){
+        res.status(400).send(error);
+    }
+});
 
 
 
