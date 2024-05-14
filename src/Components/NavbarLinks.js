@@ -15,5 +15,9 @@ export const NavbarLinks = [
       title: "Contact Us",
       path: "/contact",
     },
+    {
+      title: "Create new",
+      path: "/course",
+    },
   ];
   

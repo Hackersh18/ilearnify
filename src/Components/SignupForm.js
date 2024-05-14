@@ -3,6 +3,7 @@ import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { setUser } from "../slice/profileSlice"
 
 function SignupForm() {
   const navigate = useNavigate()
@@ -41,33 +42,42 @@ function SignupForm() {
   const handleOnSubmit = (e) => {
     e.preventDefault()
     // //const password = {password};
-    if(password.length < 8){
-      setPassAlert('Password must be of at least eight characters')
-      return
-    }
+    // if(password.length < 8){
+    //   setPassAlert('Password must be of at least eight characters')
+    //   return
+    // }
     
-    if (password !== confirmPassword) {
-      toast.error("Passwords Do Not Match")
-      return
-    }
-    const signupData = {
-      ...formData,
-      // accountType,
-    }
+
+    // if (password !== confirmPassword) {
+    //   toast.error("Passwords Do Not Match")
+    //   return
+    // }
 
 //     // Setting signup data to state
 //     // To be used after otp verification
     // dispatch(setSignupData(signupData))
 //     // Send OTP to user for verification
 //     // Reset
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    })
+    // setFormData({
+    //   firstName: "",
+    //   lastName: "",
+    //   email: "",
+    //   password: "",
+    //   confirmPassword: "",
+    // })
 //     setAccountType(ACCOUNT_TYPE.STUDENT)
+    console.log(formData)
+
+axios.post("http://localhost:4000/signup",formData).then((result) => {
+  console.log("res",result);
+  if(result.data.success===true){
+    dispatch(setUser({ ...result.data.user}))
+    navigate("/profile")
+  } 
+}).catch((err) => {
+  console.log(err);
+});
+
    }
 
 //   // data to pass to Tab component
@@ -92,7 +102,6 @@ function SignupForm() {
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
         <div className="flex gap-x-4">
           <label>
-            <p  className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
               First Name <sup className="text-pink-200">*</sup>
             </p>
@@ -107,7 +116,7 @@ function SignupForm() {
             />
           </label>
           <label>
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
               Last Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -122,7 +131,7 @@ function SignupForm() {
           </label>
         </div>
         <label className="w-full">
-          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
+          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
             Email Address <sup className="text-pink-200">*</sup>
           </p>
           <input
@@ -138,7 +147,7 @@ function SignupForm() {
         </label>
         <div className="flex gap-x-4">
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
               Create Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -163,7 +172,7 @@ function SignupForm() {
             <p className="text-pink-100 mt-1 ">{passAlert}</p>
           </label>
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
               Confirm Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -185,7 +194,7 @@ function SignupForm() {
         </div>
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-black"
+          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
         >
           Create Account
         </button>

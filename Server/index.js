@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const userRoutes = require("./routes/user.js");
 const dotenv = require("dotenv");
 // const userRoutes = require("./routes/User");
 // const profileRoutes = require("./routes/Profile");
@@ -11,6 +12,7 @@ var cookieParser = require('cookie-parser')
 const cors = require("cors");
 const {cloudinaryConnect } = require("./config/cloudinary");
 const fileUpload = require("express-fileupload");
+const User = require("./models/User.js");
 
 
 dotenv.config();
@@ -43,7 +45,7 @@ cloudinaryConnect();
 
 
 //routes
-// app.use("/api/v1/auth", userRoutes);
+//	app.use("/api/v1/auth", userRoutes);
 // app.use("/api/v1/profile", profileRoutes);
 // app.use("/api/v1/course", courseRoutes);
 // app.use("/api/v1/payment", paymentRoutes);
@@ -53,20 +55,32 @@ cloudinaryConnect();
 
 app.post("/signup", async (req,res)=>{
     try{
-        const password= req.body.password;
-        const cpassword= req.body.confirmPassword;
-        if(password==cpassword){
-            const User=new user({
-                firstname:req.body.firstname,
-                lastname:req.body.lastname,
+		const {
+			firstName,
+			lastName,
+			email,
+			password,
+			confirmPassword
+		  } = req.body
+        if(password==confirmPassword){
+            const user=await User.create({
+                firstName:req.body.firstName,
+                lastName:req.body.lastName,
                 email:req.body.email,
                 password:req.body.password,
-                confirmpassword:req.body.confirmpassword
+                confirmPassword:req.body.confirmPassword
             })
-            const register=await User.save()
-            res.status(201).render("index");
-        }else{
-            res.send("password is not matching") 
+            return res.status(200).json({
+				success: true,
+				user,
+				message: "User registered successfully",
+			  })
+        }
+		else{
+            return res.status(500).json({
+				success: false,
+				message: "User cannot be registered. Please try again.",
+			  })
         } 
     }catch(error){
         res.status(400).send(error);
