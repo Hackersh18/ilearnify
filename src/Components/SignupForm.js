@@ -93,6 +93,7 @@ function SignupForm() {
         <div className="flex gap-x-4">
           <label>
             <p  className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
               First Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -106,7 +107,7 @@ function SignupForm() {
             />
           </label>
           <label>
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
               Last Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -121,7 +122,7 @@ function SignupForm() {
           </label>
         </div>
         <label className="w-full">
-          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
             Email Address <sup className="text-pink-200">*</sup>
           </p>
           <input
@@ -137,7 +138,7 @@ function SignupForm() {
         </label>
         <div className="flex gap-x-4">
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
               Create Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -162,7 +163,7 @@ function SignupForm() {
             <p className="text-pink-100 mt-1 ">{passAlert}</p>
           </label>
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
               Confirm Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -184,7 +185,7 @@ function SignupForm() {
         </div>
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-black"
         >
           Create Account
         </button>
