@@ -6,7 +6,7 @@ import Signup from './Components/Signup';
 
 function App() {
   return (
-    <div className="w-screen min-h-screen bg-black flex flex-col font-inter">
+    <div className="w-screen min-h-screen bg-[#87bcc7] flex flex-col font-inter">
     <Navbar/>
     <Routes>
       <Route path='/' element={<HomePage/>}/>
