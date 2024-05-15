@@ -1,6 +1,6 @@
 import { RiEditBoxLine } from "react-icons/ri"
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { formattedDate } from "../utils/dateFormatter"
 import IconBtn from "./Btn.js"
@@ -9,7 +9,6 @@ export default function Profile() {
   const { user } = useSelector((state) => state.profile)
   console.log(user);
   const navigate = useNavigate()
-
   return (
     <div className="w-3/4 m-auto mt-9">
       <h1 className="mb-14 text-3xl font-medium text-white">
@@ -113,6 +112,15 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      <Link to="/">
+        <button
+          type="submit"
+          className="mt-3 rounded-[8px] ml-[28rem] mb-6 bg-blue-400 py-[8px] px-[12px] hover:bg-blue-500 hover:shadow-lg text-xl font-semibold text-black"
+        >
+          Logout
+        </button>
+      </Link>
+      
     </div>
   )
 }

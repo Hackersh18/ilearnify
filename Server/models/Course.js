@@ -2,60 +2,55 @@ const mongoose = require("mongoose");
 
 // Define the Courses schema
 const coursesSchema = new mongoose.Schema({
-	courseName: { type: String },
-	courseDescription: { type: String },
-	instructor: {
-		type: mongoose.Schema.Types.ObjectId,
-		required: true,
-		ref: "user",
-	},
-	whatYouWillLearn: {
+	courseTitle: { type: String },
+	courseShortDesc: { type: String },
+	courseCategory: {
 		type: String,
 	},
-	courseContent: [
-		{
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "Section",
-		},
-	],
-	ratingAndReviews: [
-		{
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "RatingAndReview",
-		},
-	],
-	price: {
+	// courseContent: [
+	// 	{
+	// 		type: mongoose.Schema.Types.ObjectId,
+	// 		ref: "Section",
+	// 	},
+	// ],
+	// ratingAndReviews: [
+	// 	{
+	// 		type: mongoose.Schema.Types.ObjectId,
+	// 		ref: "RatingAndReview",
+	// 	},
+	// ],
+	coursePrice: {
 		type: Number,
 	},
-	thumbnail: {
+	courseBenefits: {
 		type: String,
 	},
-	tag: {
-		type: [String],
+	courseTags: {
+		type: String,
 		required: true,
 	},
-	category: {
-		type: mongoose.Schema.Types.ObjectId,
-		// required: true,
-		ref: "Category",
-	},
-	studentsEnrolled: [
-		{
-			type: mongoose.Schema.Types.ObjectId,
-			required: true,
-			ref: "user",
-		},
-	],
-	instructions: {
-		type: [String],
-	},
-	status: {
-		type: String,
-		enum: ["Draft", "Published"],
-	},
-	createdAt: {
-		type:Date,
-		default:Date.now
+	// category: {
+	// 	type: mongoose.Schema.Types.ObjectId,
+	// 	// required: true,
+	// 	ref: "Category",
+	// },
+	// studentsEnrolled: [
+	// 	{
+	// 		type: mongoose.Schema.Types.ObjectId,
+	// 		required: true,
+	// 		ref: "user",
+	// 	},
+	// ],
+	// instructions: {
+	// 	type: [String],
+	// },
+	// status: {
+	// 	type: String,
+	// 	enum: ["Draft", "Published"],
+	// },
+	courseRequirements: {
+		type:String,
+		required:true,
 	},
 });
 

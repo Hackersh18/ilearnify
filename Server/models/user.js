@@ -25,6 +25,13 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+
+        courses: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Course",
+            },
+        ],
 		// Define the role field with type String and enum values of "Admin", "Student", or "Visitor"
 
 		// Add timestamps for when the document is created and last modified

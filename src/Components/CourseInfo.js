@@ -10,6 +10,9 @@ import { COURSE_STATUS } from "../utils/constants"
 import IconBtn from "./Btn"
 import ChipInput from "./ChipInput"
 import RequirementsField from "./RequirementField"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import { setUser } from "../slice/profileSlice"
 
 export default function CourseInfo() {
   const {
@@ -21,6 +24,7 @@ export default function CourseInfo() {
   } = useForm()
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { token } = useSelector((state) => state.auth)
   const { course, editCourse } = useSelector((state) => state.course)
   const [loading, setLoading] = useState(false)
@@ -148,7 +152,35 @@ export default function CourseInfo() {
     // }
     // setLoading(false)
   }
-
+  const [formData, setFormData] = useState({
+    courseTitle:"",
+    courseShortDesc:"",
+    coursePrice:"",
+    courseCategory:"",
+    courseTags:"",
+    courseBenefits:"",
+    courseRequirements:""
+  })
+  const { courseTitle, courseShortDesc,coursePrice,courseCategory,courseTags,courseBenefits,courseRequirements } = formData
+  const handleOnChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }))
+  }
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    
+    axios.post("http://localhost:4000/course",formData).then((result)=>{
+      console.log(result);
+        if(result.data.success===true){
+            dispatch(setUser({...result.data}))
+            navigate("/course")
+        }
+    }).catch((err)=>{
+        console.log(err);
+    })
+  }
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -162,6 +194,8 @@ export default function CourseInfo() {
         <input
           id="courseTitle"
           placeholder="Enter Course Title"
+          name="courseTitle"
+          onChange={handleOnChange}
           {...register("courseTitle", { required: true })}
           className="form-style w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
         />
@@ -178,6 +212,8 @@ export default function CourseInfo() {
         </label>
         <textarea
           id="courseShortDesc"
+          name="courseShortDesc"
+          onChange={handleOnChange}
           placeholder="Enter Description"
           {...register("courseShortDesc", { required: true })}
           className="form-style resize-x-none min-h-[130px] w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
@@ -196,6 +232,8 @@ export default function CourseInfo() {
         <div className="relative">
           <input
             id="coursePrice"
+            name="coursePrice"
+            onChange={handleOnChange}
             placeholder="Enter Course Price"
             {...register("coursePrice", {
               required: true,
@@ -216,12 +254,10 @@ export default function CourseInfo() {
       </div>
       {/* Course Category */}
       <div className="flex flex-col space-y-2">
-        <label className="text-xl text-richblack-5" htmlFor="courseCategory">
-          Course Category <sup className="text-pink-200">*</sup>
+        <label className=" text-richblack-5 text-xl" htmlFor="courseShortDesc">
+        Course Category <sup className="text-pink-200">*</sup>
         </label>
-        <select
-          {...register("courseCategory", { required: true })}
-          defaultValue=""
+        <input
           id="courseCategory"
           className="form-style w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
         >
@@ -236,15 +272,18 @@ export default function CourseInfo() {
             ))}
         </select>
         {errors.courseCategory && (
+
           <span className="ml-2 text-xs tracking-wide text-pink-200">
             Course Category is required
           </span>
         )}
       </div>
+      
       {/* Course Tags */}
       <ChipInput
         label="Tags"
         name="courseTags"
+        onChange={handleOnChange}
         placeholder="Enter Tags and press Enter"
         register={register}
         errors={errors}
@@ -267,6 +306,8 @@ export default function CourseInfo() {
         </label>
         <textarea
           id="courseBenefits"
+          name="courseBenefits"
+          onChange={handleOnChange}
           placeholder="Enter benefits of the course"
           {...register("courseBenefits", { required: true })}
           className="form-style resize-x-none min-h-[130px] w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
@@ -281,13 +322,14 @@ export default function CourseInfo() {
       <RequirementsField
         name="courseRequirements"
         label="Requirements/Instructions"
+        onChange={handleOnChange}
         register={register}
         setValue={setValue}
         errors={errors}
         getValues={getValues}
       />
       {/* Next Button */}
-      <div className="flex justify-end gap-x-2">
+      {/* <div className="flex justify-end gap-x-2">
         {editCourse && (
           <button
             onClick={() => dispatch(setStep(2))}
@@ -303,7 +345,13 @@ export default function CourseInfo() {
         >
           <MdNavigateNext />
         </IconBtn>
-      </div>
+      </div> */}
+      <button
+          type="submit"
+          className="mt-6 ml-[20rem] rounded-[8px] bg-blue-400 py-[8px] px-[12px] hover:bg-blue-500 hover:shadow-lg text-xl font-semibold text-black"
+        >
+          Add Course
+        </button>
     </form>
   )
 }
