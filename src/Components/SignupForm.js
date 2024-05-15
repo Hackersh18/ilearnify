@@ -100,7 +100,7 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
       {/* Tab */}
       {/* <Tab tabData={tabData} field={accountType} setField={setAccountType} /> */}
       {/* Form */}
-      <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4 shadow-2xl rounded-lg m-4 p-4 bg-gradient-to-r from-sky-300 to-indigo-300">
+      <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4 shadow-2xl rounded-lg m-4 ml-0  p-2 bg-gradient-to-r from-sky-300 to-indigo-300">
         <div className="flex gap-x-4">
           <label>
             <p className="mb-1 pl-1 text-[0.875rem] leading-[1.375rem] text-black">
@@ -113,7 +113,7 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="form-style w-full border-2 border-black text-center shadow-md rounded-md"
+              className="form-style w-full border-2 border-black outline-none text-xl p-1 shadow-md rounded-md"
             />
           </label>
           <label>
@@ -127,7 +127,7 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="form-style w-full border-2 border-black text-center shadow-md rounded-md"
+              className="form-style w-full border-2 border-black outline-none text-xl p-1  shadow-md rounded-md"
             />
           </label>
         </div>
@@ -143,7 +143,7 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="form-style w-full border-2 border-black text-center shadow-md rounded-md"
+            className="form-style w-full border-2 border-black  outline-none text-xl p-1  shadow-md rounded-md"
           />
         </label>
         <div className="flex gap-x-4">
@@ -158,11 +158,11 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="form-style w-full !pr-10 border-2 border-black text-center shadow-md rounded-md"
+              className="form-style w-full !pr-10 border-2 border-black text-center text-xl p-1  shadow-md rounded-md"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-7 z-[10] cursor-pointer"
+              className="absolute right-3 top-7 z-[10] cursor-pointer mt-[7px]"
             >
               {showPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -183,13 +183,17 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="form-style w-full !pr-10 border-2 border-black text-center shadow-md rounded-md"
+              className="form-style w-full !pr-10 border-2 border-black outline-none text-xl p-1  shadow-md rounded-md"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
-              className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+              className="absolute right-3 top-[35px] z-[10] cursor-pointer"
             >
-              {showConfirmPassword}
+              {showConfirmPassword ? (
+                <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+              ) : (
+                <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+              )}
             </span>
           </label>
         </div>

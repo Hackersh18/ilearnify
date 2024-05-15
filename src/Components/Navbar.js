@@ -7,6 +7,7 @@ import { AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 import ProfileDropDown from './ProfileDropDown'
 import logo from "../Assets/Logo-Full-Light.png.png"
+import { RiAccountCircleLine } from "react-icons/ri";
 
 const Navbar = () => {
 
@@ -27,7 +28,7 @@ const Navbar = () => {
       }
   return (
     <div
-    className={`flex h-14 items-center justify-center border-b-[1px] border-b-black ${
+    className={`flex h-14 items-center justify-center  bg-gradient-to-l from-cyan-500 to-blue-500 ${
       location.pathname !== "/" ? "bg-gray-400" : ""
     } transition-all duration-200`}
   >
@@ -102,8 +103,8 @@ const Navbar = () => {
           <Link to="/dashboard/cart" className="relative">
             <AiOutlineShoppingCart className="text-2xl text-black" />
             {(
-              <span className="absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-black text-center text-xs font-bold text-yellow">
-                
+              <span className="absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-black text-center text-xs font-bold text-white">
+               0 
               </span>
             )}
           </Link>
@@ -122,10 +123,10 @@ const Navbar = () => {
             </button>
           </Link>
         )}
-        {<ProfileDropDown />}
+        <Link to={"/dashboard"}>{<RiAccountCircleLine size={44}/>}</Link>
       </div>
       <button className="mr-4 md:hidden">
-        <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+        <AiOutlineMenu fontSize={24} fill="#AFB2BF"/>
       </button>
     </div>
   </div>
