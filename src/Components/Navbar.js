@@ -11,6 +11,8 @@ import { RiAccountCircleLine } from "react-icons/ri";
 
 const Navbar = () => {
 
+    const cartItems=useSelector((store)=>store.cart.items)
+
     // const { user } = useSelector((state) => state.profile)
     // const { totalItems } = useSelector((state) => state.cart)
     // const { token } = useSelector((state) => state.auth)
@@ -97,11 +99,11 @@ const Navbar = () => {
       {/* Login / Signup / Dashboard */}
       <div className="hidden items-center gap-x-4 md:flex">
         {(
-          <Link to="/dashboard/cart" className="relative">
+          <Link to="/cart" className="relative">
             <AiOutlineShoppingCart className="text-2xl text-black" />
             {(
               <span className="absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-black text-center text-xs font-bold text-white">
-               0 
+              {cartItems.length}
               </span>
             )}
           </Link>

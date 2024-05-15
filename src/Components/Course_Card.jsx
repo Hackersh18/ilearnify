@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react"
 // Icons
 import { FaRegStar, FaStar } from "react-icons/fa"
+import { addItems } from "../slice/cartSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
+import Cart from "./Cart"
 
 function Course_Card({course}) {
+
+  const cartItems=useSelector((store)=>store.cart.items)
 
   const { user } = useSelector((state) => state.profile)
   const { token } = useSelector((state) => state.auth)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const handleBuy = () => {
+  const handleAddItem=(course)=>{
+    dispatch(addItems(course))
   }
 
 
@@ -29,7 +34,6 @@ function Course_Card({course}) {
 
   return (
     <>
-      <Link to={`/courses`}>
         <div className="m-4">
           <div className="rounded-lg">
             <img
@@ -61,15 +65,18 @@ function Course_Card({course}) {
             </div> */}
             <p className="text-xl text-white  ">Rs. {course?.price}</p>
             <div className="cursor-pointer w-1/2 rounded-md bg-yellow-500 px-[20px] py-[8px] font-semibold text-black">
-            { (
-              <button onClick={handleBuy} className="blackButton">
+            {!cartItems.includes(course)? (
+              <button onClick={()=>handleAddItem(course)} className="blackButton">
+                Add to Cart
+              </button>
+            ):(
+              <button onClick={()=>handleAddItem(course)} className="blackButton">
                 Buy Now
               </button>
             )}
           </div>
           </div>
         </div>
-      </Link>
     </>
   )
 }

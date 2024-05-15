@@ -9,6 +9,7 @@ import About from './Components/About';
 import Contact from './Components/Contact';
 import Login from './Components/LoginForm';
 import Catalog from './Components/Catalog';
+import Cart from './Components/Cart';
 
 
 function App() {
@@ -57,6 +58,12 @@ function App() {
           path="catalog"
           element={
               <Catalog/>
+          }
+        />
+        <Route
+          path="cart"
+          element={
+              <Cart/>
           }
         />
     </Routes>
