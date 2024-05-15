@@ -8,6 +8,7 @@ import CourseInfo from './Components/CourseInfo';
 import About from './Components/About';
 import Contact from './Components/Contact';
 import Login from './Components/LoginForm';
+import Catalog from './Components/Catalog';
 
 
 function App() {
@@ -50,6 +51,12 @@ function App() {
           path="Contact"
           element={
               <Contact/>
+          }
+        />
+        <Route
+          path="catalog"
+          element={
+              <Catalog/>
           }
         />
     </Routes>

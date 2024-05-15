@@ -23,23 +23,23 @@ export const HomePageExplore = [
         ]
     },
     {
-        tag: 'New to coding',
+        tag: 'AI-Driven',
         courses : [
             {
-                heading : "HTML",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
+                heading : "chatbot",
+                description : "Advanced chatbots use artificial intelligence (AI) to understand natural language and respond in a more human-like way. They can learn and adapt over time, becoming more helpful and informative as they interact with more users.",
                 level : 'Beginner',
                 lessionNumber : 6
             },
             {
-                heading : "CSS",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
+                heading : "AI-TA",
+                description : "AI tutors are intelligent computer programs designed to assist you with learning. They leverage artificial intelligence (AI) to personalize your learning experience and provide you with support in various ways.",
                 level : 'Beginner',
                 lessionNumber : 6
             },
             {
-                heading : "Responsive ",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
+                heading : "Generative-AI",
+                description : "Generative AI, short for generative artificial intelligence, is a branch of AI that focuses on creating entirely new content,  like text, images, music, and even videos. It's essentially like having a super-powered copywriter, artist, or musician on your AI team!",
                 level : 'Beginner',
                 lessionNumber : 6
             },
@@ -69,7 +69,7 @@ export const HomePageExplore = [
         ]
     },
     {
-        tag: 'Skills paths',
+        tag: 'Analytics ',
         courses : [
             {
                 heading : "Flask",

@@ -11,7 +11,7 @@ export default function Profile() {
   const navigate = useNavigate()
 
   return (
-    <div className="w-3/4 m-auto">
+    <div className="w-3/4 m-auto mt-9">
       <h1 className="mb-14 text-3xl font-medium text-white">
         My Profile
       </h1>

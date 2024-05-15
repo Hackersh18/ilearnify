@@ -3,16 +3,16 @@ import CTAButton from "./Btn";
 import Know_your_progress from "../Assets/Know_your_progress.png";
 import Compare_with_others from "../Assets/Compare_with_others.png";
 import Plan_your_lessons from "../Assets/Plan_your_lessons.png";
+import HighlightText from './HighlightText';
 
 const LearningLanguageSection = () => {
   return (
     <div>
         <div className="text-4xl font-semibold text-center my-10">
             Your swiss knife for
+            <HighlightText text={"Learning Anything on your own pace."} />
             <div className="text-center text-richblack-700 font-medium lg:w-[75%] mx-auto leading-6 text-base mt-3">
-              Using spin making learning multiple languages easy. with 20+
-              languages realistic voice-over, progress tracking, custom schedule
-              and more.
+            Students take an initial assessment that identifies their learning style (visual, auditory, kinesthetic), interests (through quizzes and surveys), and academic goals (through grade level and desired subjects).
             </div>
             <div className="flex flex-col lg:flex-row items-center justify-center mt-8 lg:mt-0">
               <img

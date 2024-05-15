@@ -27,14 +27,15 @@ export default function CourseInfo() {
   const [courseCategories, setCourseCategories] = useState([])
 
   useEffect(() => {
-    // const getCategories = async () => {
-    //   setLoading(true)
-    //   if (categories.length > 0) {
-    //     // console.log("categories", categories)
-    //     setCourseCategories(categories)
-    //   }
-    //   setLoading(false)
-    // }
+    const getCategories = async () => {
+      setLoading(true)
+      const categories = [10,11,12,"UG","PG","GATE","UPSC","JEE","Development","Programming"]
+      if (categories.length > 0) {
+         console.log("categories", categories)
+        setCourseCategories(categories)
+      }
+      setLoading(false)
+    }
     // if form is in edit mode
     if (editCourse) {
       // console.log("data populated", editCourse)
@@ -47,7 +48,7 @@ export default function CourseInfo() {
       setValue("courseRequirements", course.instructions)
       setValue("courseImage", course.thumbnail)
     }
-    // getCategories()
+    getCategories()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -151,7 +152,7 @@ export default function CourseInfo() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 w-[60%] ml-[18rem]  rounded-md  border-richblack-700 bg-richblack-800 p-6"
+      className="space-y-8 mt-10 w-[60%] ml-[18rem] rounded-md border  border-blue-300 bg-blue-500 p-6"
     >
       {/* Course Title */}
       <div className="flex flex-col space-y-2">
@@ -228,9 +229,9 @@ export default function CourseInfo() {
             Choose a Category
           </option>
           {!loading &&
-            courseCategories?.map((category, indx) => (
-              <option key={indx} value={category?._id}>
-                {category?.name}
+            courseCategories?.map((category) => (
+              <option key={category}>
+                {category}
               </option>
             ))}
         </select>

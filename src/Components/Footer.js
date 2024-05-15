@@ -3,7 +3,7 @@ import { FooterLink2 } from './FooterLinks';
 import { Link } from "react-router-dom";
 
 // Images
-import Logo from "../Assets/Logo-Full-Light.png.png";
+import Logo from "../Assets/Screenshot_2024-05-15_130723-removebg-preview.png";
 
 // Icons
 import { FaFacebook, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa";
