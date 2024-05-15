@@ -6,7 +6,7 @@ import { ACCOUNT_TYPE } from '../utils/constants'
 import { AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 import ProfileDropDown from './ProfileDropDown'
-import logo from "../Assets/Logo-Full-Light.png.png"
+import logo from "../Assets/Screenshot_2024-05-15_130723-removebg-preview.png"
 import { RiAccountCircleLine } from "react-icons/ri";
 
 const Navbar = () => {
@@ -51,11 +51,11 @@ const Navbar = () => {
                         : "text-[#eeecdd]"
                     }`}
                   >
-                    <p>{link.title}</p>
+                   <Link to="/catalog"> <p className='text-lg m-2'>{link.title}</p></Link>
                     <BsChevronDown />
-                    <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-white p-4 text-black opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
+                    <div className="absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-white p-4 text-black opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
                       <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-black"></div>
-                      {subLinks?.length ? (
+                      {/* {subLinks?.length ? (
                         <>
                           {subLinks
                             ?.filter(
@@ -63,10 +63,7 @@ const Navbar = () => {
                             )
                             ?.map((subLink, i) => (
                               <Link
-                                to={`/catalog/${subLink.name
-                                  .split(" ")
-                                  .join("-")
-                                  .toLowerCase()}`}
+                                to='/catalog'
                                 className="rounded-lg bg-transparent py-4 pl-4 hover:bg-black"
                                 key={i}
                               >
@@ -76,14 +73,14 @@ const Navbar = () => {
                         </>
                       ) : (
                         <p className="text-center">No Courses Found</p>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </>
               ) : (
                 <Link to={link?.path}>
                   <p
-                    className={`${
+                    className={`text-lg m-2 ${
                       matchRoute(link?.path)
                         ? "text-yellow-25"
                         : "text-black"
@@ -123,7 +120,7 @@ const Navbar = () => {
             </button>
           </Link>
         )}
-        <Link to={"/dashboard"}>{<RiAccountCircleLine size={44}/>}</Link>
+        <Link to={"/profile"}>{<RiAccountCircleLine size={44}/>}</Link>
       </div>
       <button className="mr-4 md:hidden">
         <AiOutlineMenu fontSize={24} fill="#AFB2BF"/>

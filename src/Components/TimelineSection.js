@@ -6,23 +6,23 @@ import Logo4 from "../Assets/TimeLineLogo/Logo4.svg";
 const TimeLine = [
     {
       Logo: Logo1,
-      Heading: "Leadership",
-      Description: "Fully committed to the success company",
+      Heading: "Personalized Learning Plan",
+      Description: "Based on the assessment, Learnify generates a dynamic learning plan",
     },
     {
       Logo: Logo2,
-      Heading: "Responsibility",
-      Description: "Students will always be our top priority",
+      Heading: "Curated Content",
+      Description: "A mix of learning resources like articles, videos, interactive games and simulations aligned with the student's interests and learning style",
     },
     {
       Logo: Logo3,
-      Heading: "Flexibility",
-      Description: "The ability to switch is an important skills",
+      Heading: "Adaptive Learning Path",
+      Description: "Difficulty levels and pacing adjust based on student performance. Students can master concepts before moving on",
     },
     {
       Logo: Logo4,
-      Heading: "Solve the problem",
-      Description: "Code your way to a solution",
+      Heading: "Goal Tracking",
+      Description: "Tracks progress towards academic goals with clear milestones and rewards for achievement."
     },
   ];
 

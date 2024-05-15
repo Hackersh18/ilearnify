@@ -10,6 +10,7 @@ import TimelineSection from "./TimelineSection.js"
 import LearningLanguageSection from "./LearningLanguageSection.js"
 import InstructorSection from "./InstructorSection.js"
 import ExploreMore from "./ExploreMore.js"
+import HighlightText from "./HighlightText.js"
 
 function Home() {
   return (
@@ -25,19 +26,21 @@ function Home() {
             </div>
           </div>
         </Link>
+    
 
         {/* Heading */}
         <div className="text-center text-4xl font-semibold">
-          Empower Your Future with
-          {/* <HighlightText text={"Coding Skills"} /> */}
+          Empower Your Future with 
+          <HighlightText text={"Curated Learning"} />
         </div>
 
         {/* Sub Heading */}
         <div className="-mt-3 w-[90%] text-center text-lg font-bold text-black">
-          With our online coding courses, you can learn at your own pace, from
-          anywhere in the world, and get access to a wealth of resources,
-          including hands-on projects, quizzes, and personalized feedback from
-          instructors.
+        ⛳  A mix of learning resources like articles, videos, interactive games, and simulations aligned with the student's interests and learning style <br/>
+        ⛳ Difficulty levels and pacing adjust based on student performance. Students can master concepts before moving on.
+        <br/>
+        ⛳ Tracks progress towards academic goals with clear milestones and rewards for achievement.
+
         </div>
 
         {/* CTA Buttons */}
@@ -79,14 +82,12 @@ function Home() {
           {/* Job that is in Demand - Section 1 */}
           <div className="mb-10 mt-[-100px] flex flex-col justify-between gap-7 lg:mt-20 lg:flex-row lg:gap-0">
             <div className="text-4xl font-semibold lg:w-[45%] ">
-              Get the skills you need for a{" "}
-              {/* <HighlightText text={"job that is in demand."} /> */}
+              Get the skills you need for {" "}
+              <HighlightText text={"Personal development."} />
             </div>
             <div className="flex flex-col items-start gap-10 lg:w-[40%]">
               <div className="text-[20px] font-semibold">
-                The modern learnify is the dictates its own terms. Today, to
-                be a competitive specialist requires more than professional
-                skills.
+              Learnify is a mobile app that creates personalized learning plans for students. It tailors content and resources to individual needs and goals, making learning more engaging and effective.
               </div>
               <CTAButton active={true} linkto={"/signup"}>
                 <div className="">Learn More</div>
@@ -121,3 +122,4 @@ function Home() {
 }
 
 export default Home
+

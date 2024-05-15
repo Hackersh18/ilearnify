@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { HomePageExplore } from "../utils/homepage-explore";
 import CourseCard from "./CourseCard";
+import HighlightText from "./HighlightText";
 
 const tabsName = [
   "Free",
-  "New to coding",
+  "AI-Driven",
   "Most popular",
-  "Skills paths",
+  "Analytics",
   "Career paths",
 ];
 
@@ -29,9 +30,9 @@ const ExploreMore = () => {
       {/* Explore more section */}
       <div>
         <div className="text-4xl font-semibold text-center my-10">
-          Unlock the
+          Unlock the  <HighlightText text={"power of adaptive Learning"} />
           <p className="text-center text-gray-400 text-lg font-semibold mt-1">
-            Learn to Build Anything You Can Imagine
+            Learn Anything You Can Imagine
           </p>
         </div>
       </div>
