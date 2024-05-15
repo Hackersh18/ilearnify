@@ -254,25 +254,26 @@ export default function CourseInfo() {
       </div>
       {/* Course Category */}
       <div className="flex flex-col space-y-2">
-        <label className=" text-richblack-5 text-xl" htmlFor="courseShortDesc">
-        Course Category <sup className="text-pink-200">*</sup>
+        <label className="text-sm text-richblack-5" htmlFor="courseCategory">
+          Course Category <sup className="text-pink-200">*</sup>
         </label>
-        <input
+        <select
+          {...register("courseCategory", { required: true })}
+          defaultValue=""
           id="courseCategory"
-          className="form-style w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
+          className="form-style w-full"
         >
           <option value="" disabled>
             Choose a Category
           </option>
           {!loading &&
-            courseCategories?.map((category) => (
-              <option key={category}>
+            courseCategories?.map((category,i) => (
+              <option key={i} >
                 {category}
               </option>
             ))}
-        </input>
+        </select>
         {errors.courseCategory && (
-
           <span className="ml-2 text-xs tracking-wide text-pink-200">
             Course Category is required
           </span>
