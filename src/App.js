@@ -10,6 +10,7 @@ import Contact from './Components/Contact';
 import Login from './Components/LoginForm';
 import Catalog from './Components/Catalog';
 import Cart from './Components/Cart';
+import Questions from './Components/Questions';
 
 
 function App() {
@@ -64,6 +65,12 @@ function App() {
           path="cart"
           element={
               <Cart/>
+          }
+        />
+        <Route
+          path="question"
+          element={
+              <Questions/>
           }
         />
     </Routes>

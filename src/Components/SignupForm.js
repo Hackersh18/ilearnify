@@ -73,7 +73,7 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
   console.log("res",result);
   if(result.data.success===true){
     dispatch(setUser({ ...result.data.user}))
-    navigate("/profile")
+    navigate("/question")
   } 
 }).catch((err) => {
   console.log(err);
