@@ -5,10 +5,11 @@ import Navbar from './Components/Navbar';
 import Signup from './Components/Signup';
 import Profile from './Components/Profile';
 import CourseInfo from './Components/CourseInfo';
+import Login from './Components/LoginForm';
 
 function App() {
   return (
-    <div className="w-screen min-h-screen bg-[#87bcc7] flex flex-col font-inter">
+    <div className="w-screen min-h-screen bg-[#3b48aa] flex flex-col font-inter">
     <Navbar/>
     <Routes>
       <Route path='/' element={<HomePage/>}/>
@@ -16,6 +17,12 @@ function App() {
           path="signup"
           element={
               <Signup />
+          }
+        />
+      <Route
+          path="login"
+          element={
+              <Login/>
           }
         />
       <Route

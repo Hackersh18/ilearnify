@@ -99,7 +99,7 @@ app.post("/login", async(req,res)=>{
                 message: `Please Fill up All the Required Fields`,
             })
         }
-        const useremail= await user.findOne({email:email})
+        const useremail= await User.findOne({email:email})
         if (!useremail) {
             // Return 401 Unauthorized status code with error message
             return res.status(401).json({
@@ -110,6 +110,7 @@ app.post("/login", async(req,res)=>{
         if(useremail.password==password){
             res.status(200).json({
                 success: true,
+				useremail,
                 message: `User Login Success`,
             })
         }else{

@@ -9,6 +9,7 @@ import Footer from "./Footer.js"
 import TimelineSection from "./TimelineSection.js"
 import LearningLanguageSection from "./LearningLanguageSection.js"
 import InstructorSection from "./InstructorSection.js"
+import ExploreMore from "./ExploreMore.js"
 
 function Home() {
   return (
@@ -16,10 +17,10 @@ function Home() {
       {/* Section 1 */}
       <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-black">
         {/* Become a Instructor Button */}
-        <Link to={"/signup"}>
-          <div className="group mx-auto mt-16 w-fit rounded-full bg-richblack-800 p-1 font-bold text-richblack-200 drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-200 hover:scale-95 hover:drop-shadow-none">
+        <Link to={"/course"}>
+          <div className="group mx-auto mt-16 w-fit rounded-full bg-black p-1 font-bold text-gray-400 drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-200 hover:scale-95 hover:drop-shadow-none">
             <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-black text-white">
-              <p>Become an Instructor</p>
+              <p>Create your Course</p>
               <FaArrowRight />
             </div>
           </div>
@@ -32,7 +33,7 @@ function Home() {
         </div>
 
         {/* Sub Heading */}
-        <div className="-mt-3 w-[90%] text-center text-lg font-bold text-richblack-300">
+        <div className="-mt-3 w-[90%] text-center text-lg font-bold text-green-600">
           With our online coding courses, you can learn at your own pace, from
           anywhere in the world, and get access to a wealth of resources,
           including hands-on projects, quizzes, and personalized feedback from
@@ -48,6 +49,10 @@ function Home() {
             Book a Demo
           </CTAButton>
         </div>
+
+
+    <ExploreMore/>
+
       </div>
 
       {/* Section 2 */}

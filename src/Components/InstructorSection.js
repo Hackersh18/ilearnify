@@ -7,6 +7,11 @@ const InstructorSection = () => {
     <div>
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-[50%]">
+          <img
+              src="https://mintbook.com/blog/wp-content/uploads/What-is-Instructor-Led-Training.png.webp"
+              alt=""
+              className="shadow-white shadow-[-20px_-20px_0_0]"
+            />
           </div>
           <div className="lg:w-[50%] flex gap-10 flex-col">
             <h1 className="lg:w-[50%] text-4xl font-semibold ">

@@ -4,6 +4,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { setUser } from "../slice/profileSlice"
+import axios from "axios"
 
 function SignupForm() {
   const navigate = useNavigate()
@@ -99,10 +100,10 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
       {/* Tab */}
       {/* <Tab tabData={tabData} field={accountType} setField={setAccountType} /> */}
       {/* Form */}
-      <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
+      <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4 shadow-2xl rounded-lg m-4 p-4 bg-gradient-to-r from-sky-300 to-indigo-300">
         <div className="flex gap-x-4">
           <label>
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
+            <p className="mb-1 pl-1 text-[0.875rem] leading-[1.375rem] text-black">
               First Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -112,11 +113,11 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="form-style w-full"
+              className="form-style w-full border-2 border-black text-center shadow-md rounded-md"
             />
           </label>
           <label>
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 pl-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
               Last Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -126,12 +127,12 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="form-style w-full"
+              className="form-style w-full border-2 border-black text-center shadow-md rounded-md"
             />
           </label>
         </div>
         <label className="w-full">
-          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+          <p className="mb-1 pl-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
             Email Address <sup className="text-pink-200">*</sup>
           </p>
           <input
@@ -142,12 +143,12 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="form-style w-full"
+            className="form-style w-full border-2 border-black text-center shadow-md rounded-md"
           />
         </label>
         <div className="flex gap-x-4">
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 pl-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
               Create Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -157,11 +158,11 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="form-style w-full !pr-10"
+              className="form-style w-full !pr-10 border-2 border-black text-center shadow-md rounded-md"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+              className="absolute right-3 top-7 z-[10] cursor-pointer"
             >
               {showPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -172,7 +173,7 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
             <p className="text-pink-100 mt-1 ">{passAlert}</p>
           </label>
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 pl-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
               Confirm Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -182,7 +183,7 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="form-style w-full !pr-10"
+              className="form-style w-full !pr-10 border-2 border-black text-center shadow-md rounded-md"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -194,7 +195,7 @@ axios.post("http://localhost:4000/signup",formData).then((result) => {
         </div>
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+          className="mt-6 rounded-[8px] bg-blue-400 py-[8px] px-[12px] hover:bg-blue-500 hover:shadow-lg font-medium text-black"
         >
           Create Account
         </button>
