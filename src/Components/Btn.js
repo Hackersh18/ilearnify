@@ -5,7 +5,7 @@ const Button = ({ children, active, linkto }) => {
   return (
     <Link to={linkto}>
       <div
-        className={`text-center text-[13px] sm:text-[16px] px-6 py-3 rounded-md font-bold shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] bg-yellow-700 text-black hover:shadow-none hover:scale-95 hover:bg-yellow-500 transition-all duration-200 `}
+        className={`text-center text-[13px] sm:text-[16px] px-6 py-3 rounded-md font-bold shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] bg-blue-400 text-black hover:shadow-none hover:scale-95 hover:bg-blue-800 transition-all duration-200 `}
       >
         {children}
       </div>
