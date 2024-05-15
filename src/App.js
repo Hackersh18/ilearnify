@@ -13,7 +13,7 @@ import Catalog from './Components/Catalog';
 
 function App() {
   return (
-    <div className="w-screen min-h-screen bg-[#3b48aa] flex flex-col font-inter">
+    <div className="w-full min-h-screen bg-[#3b48aa] flex flex-col font-inter">
     <Navbar/>
     <Routes>
       <Route path='/' element={<HomePage/>}/>

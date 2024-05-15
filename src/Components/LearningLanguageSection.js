@@ -11,7 +11,7 @@ const LearningLanguageSection = () => {
         <div className="text-4xl font-semibold text-center my-10">
             Your swiss knife for
             <HighlightText text={"Learning Anything on your own pace."} />
-            <div className="text-center text-richblack-700 font-medium lg:w-[75%] mx-auto leading-6 text-base mt-3">
+            <div className="text-center text-white font-medium lg:w-[75%] mx-auto leading-6 text-base mt-3">
             Students take an initial assessment that identifies their learning style (visual, auditory, kinesthetic), interests (through quizzes and surveys), and academic goals (through grade level and desired subjects).
             </div>
             <div className="flex flex-col lg:flex-row items-center justify-center mt-8 lg:mt-0">

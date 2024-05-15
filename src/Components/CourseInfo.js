@@ -270,7 +270,7 @@ export default function CourseInfo() {
                 {category}
               </option>
             ))}
-        </select>
+        </input>
         {errors.courseCategory && (
 
           <span className="ml-2 text-xs tracking-wide text-pink-200">
