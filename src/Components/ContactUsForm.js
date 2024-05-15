@@ -58,7 +58,7 @@ const ContactUsForm = () => {
             name="firstname"
             id="firstname"
             placeholder="Enter first name"
-            className="form-style"
+            className="form-style text-black border-[2px] border-black rounded-xl p-1 text-xl outline-none"
             {...register("firstname", { required: true })}
           />
           {errors.firstname && (
@@ -76,7 +76,7 @@ const ContactUsForm = () => {
             name="lastname"
             id="lastname"
             placeholder="Enter last name"
-            className="form-style"
+            className="form-style text-black border-[2px] border-black rounded-xl p-1 text-xl outline-none"
             {...register("lastname")}
           />
         </div>
@@ -91,7 +91,7 @@ const ContactUsForm = () => {
           name="email"
           id="email"
           placeholder="Enter email address"
-          className="form-style"
+          className="form-style text-black border-[2px] border-black rounded-xl p-1 text-xl outline-none"
           {...register("email", { required: true })}
         />
         {errors.email && (
@@ -113,7 +113,7 @@ const ContactUsForm = () => {
               name="firstname"
               id="firstname"
               placeholder="Enter first name"
-              className="form-style"
+              className="form-style text-black border-[2px] border-black rounded-xl p-1 text-xl outline-none"
               {...register("countrycode", { required: true })}
             >
               {CountryCode.map((ele, i) => {
@@ -131,7 +131,7 @@ const ContactUsForm = () => {
               name="phonenumber"
               id="phonenumber"
               placeholder="12345 67890"
-              className="form-style"
+              className="form-style text-black  border-[2px] border-black rounded-xl p-1 text-xl outline-none"
               {...register("phoneNo", {
                 required: {
                   value: true,
@@ -160,7 +160,7 @@ const ContactUsForm = () => {
           cols="30"
           rows="7"
           placeholder="Enter your message here"
-          className="form-style"
+          className="form-style text-black border-[2px] border-black rounded-xl p-1 text-xl outline-none"
           {...register("message", { required: true })}
         />
         {errors.message && (

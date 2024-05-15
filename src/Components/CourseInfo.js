@@ -151,18 +151,18 @@ export default function CourseInfo() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6"
+      className="space-y-8 w-[60%] ml-[18rem]  rounded-md  border-richblack-700 bg-richblack-800 p-6"
     >
       {/* Course Title */}
       <div className="flex flex-col space-y-2">
-        <label className="text-sm text-richblack-5" htmlFor="courseTitle">
+        <label className=" text-xl text-richblack-5" htmlFor="courseTitle">
           Course Title <sup className="text-pink-200">*</sup>
         </label>
         <input
           id="courseTitle"
           placeholder="Enter Course Title"
           {...register("courseTitle", { required: true })}
-          className="form-style w-full"
+          className="form-style w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
         />
         {errors.courseTitle && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -172,14 +172,14 @@ export default function CourseInfo() {
       </div>
       {/* Course Short Description */}
       <div className="flex flex-col space-y-2">
-        <label className="text-sm text-richblack-5" htmlFor="courseShortDesc">
+        <label className=" text-richblack-5 text-xl" htmlFor="courseShortDesc">
           Course Short Description <sup className="text-pink-200">*</sup>
         </label>
         <textarea
           id="courseShortDesc"
           placeholder="Enter Description"
           {...register("courseShortDesc", { required: true })}
-          className="form-style resize-x-none min-h-[130px] w-full"
+          className="form-style resize-x-none min-h-[130px] w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
         />
         {errors.courseShortDesc && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -189,7 +189,7 @@ export default function CourseInfo() {
       </div>
       {/* Course Price */}
       <div className="flex flex-col space-y-2">
-        <label className="text-sm text-richblack-5" htmlFor="coursePrice">
+        <label className="text-xl text-richblack-5" htmlFor="coursePrice">
           Course Price <sup className="text-pink-200">*</sup>
         </label>
         <div className="relative">
@@ -203,7 +203,7 @@ export default function CourseInfo() {
                 value: /^(0|[1-9]\d*)(\.\d+)?$/,
               },
             })}
-            className="form-style w-full !pl-12"
+            className="form-style w-full !pl-12 border-[2px] border-black rounded-xl p-2 text-xl outline-none"
           />
           <HiOutlineCurrencyRupee className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-richblack-400" />
         </div>
@@ -215,14 +215,14 @@ export default function CourseInfo() {
       </div>
       {/* Course Category */}
       <div className="flex flex-col space-y-2">
-        <label className="text-sm text-richblack-5" htmlFor="courseCategory">
+        <label className="text-xl text-richblack-5" htmlFor="courseCategory">
           Course Category <sup className="text-pink-200">*</sup>
         </label>
         <select
           {...register("courseCategory", { required: true })}
           defaultValue=""
           id="courseCategory"
-          className="form-style w-full"
+          className="form-style w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
         >
           <option value="" disabled>
             Choose a Category
@@ -261,14 +261,14 @@ export default function CourseInfo() {
       /> */}
       {/* Benefits of the course */}
       <div className="flex flex-col space-y-2">
-        <label className="text-sm text-richblack-5" htmlFor="courseBenefits">
+        <label className="text-xl text-richblack-5" htmlFor="courseBenefits">
           Benefits of the course <sup className="text-pink-200">*</sup>
         </label>
         <textarea
           id="courseBenefits"
           placeholder="Enter benefits of the course"
           {...register("courseBenefits", { required: true })}
-          className="form-style resize-x-none min-h-[130px] w-full"
+          className="form-style resize-x-none min-h-[130px] w-full border-[2px] border-black rounded-xl p-2 text-xl outline-none"
         />
         {errors.courseBenefits && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
