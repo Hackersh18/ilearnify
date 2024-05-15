@@ -1,16 +1,16 @@
 import React from "react"
 
-import FoundingStory from "../assets/Images/FoundingStory.png"
-import BannerImage1 from "../assets/Images/aboutus1.webp"
-import BannerImage2 from "../assets/Images/aboutus2.webp"
-import BannerImage3 from "../assets/Images/aboutus3.webp"
+// import FoundingStory from "../assets/Images/FoundingStory.png"
+// import BannerImage1 from "../assets/Images/aboutus1.webp"
+// import BannerImage2 from "../assets/Images/aboutus2.webp"
+// import BannerImage3 from "../assets/Images/aboutus3.webp"
 // import ContactFormSection from "../components/core/AboutPage/ContactFormSection"
 // import LearningGrid from "../components/core/AboutPage/LearningGrid"
 import Quote from "../Components/Quote"
 // import StatsComponenet from "../components/core/AboutPage/Stats"
 import HighlightText from "../Components/HighlightText"
 // import ReviewSlider from "../components/common/ReviewSlider"
-import Footer from "../components/Footer"
+import Footer from "../Components/Footer"
 
 const About = () => {
   return (
@@ -29,9 +29,9 @@ const About = () => {
           </header>
           <div className="sm:h-[70px] lg:h-[150px]"></div>
           <div className="absolute bottom-0 left-[50%] grid w-[100%] translate-x-[-50%] translate-y-[30%] grid-cols-3 gap-3 lg:gap-5">
-            <img src={BannerImage1} alt="" />
+            {/* <img src={BannerImage1} alt="" />
             <img src={BannerImage2} alt="" />
-            <img src={BannerImage3} alt="" />
+            <img src={BannerImage3} alt="" /> */}
           </div>
         </div>
       </section>
@@ -70,7 +70,7 @@ const About = () => {
 
             <div>
               <img
-                src={FoundingStory}
+                // src={FoundingStory}
                 alt=""
                 className="shadow-[0_0_20px_0] shadow-[#FC6767]"
               />
