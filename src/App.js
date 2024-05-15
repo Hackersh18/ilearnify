@@ -5,7 +5,10 @@ import Navbar from './Components/Navbar';
 import Signup from './Components/Signup';
 import Profile from './Components/Profile';
 import CourseInfo from './Components/CourseInfo';
+import About from './Components/About';
+import Contact from './Components/Contact';
 import Login from './Components/LoginForm';
+
 
 function App() {
   return (
@@ -35,6 +38,18 @@ function App() {
           path="course"
           element={
               <CourseInfo />
+          }
+        />
+        <Route
+          path="About"
+          element={
+              <About />
+          }
+        />
+        <Route
+          path="Contact"
+          element={
+              <Contact/>
           }
         />
     </Routes>
