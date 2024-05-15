@@ -15,6 +15,7 @@ const fileUpload = require("express-fileupload");
 const User = require("./models/User.js");
 
 
+
 dotenv.config();
 
 const PORT = process.env.PORT || 4000;
@@ -130,7 +131,51 @@ app.post("/login", async(req,res)=>{
 });
 
 
+app.post("/course",async(req,res)=>{
+    try {
+        const {
+			courseTitle,
+			courseShortDesc,
+			courseCategory,
+			coursePrice,
+            courseBenefits,
+            courseTags,
+            courseRequirements
+		} = req.body
+        if (
+            !courseTitle ||
+            !courseShortDesc ||
+            !courseCategory||
+            !coursePrice ||
+            !courseBenefits||
+            !courseTags||
+            !courseRequirements
+          ) {
+                return res.status(400).json({
+                success: false,
+                message: "All Fields are required",
+                })
+            }
 
+            const newCourse = await Course.create({
+                courseTitle,
+                courseShortDesc,
+                courseCategory,
+                coursePrice,
+                courseBenefits,
+                courseTags,
+                courseRequirements,
+            })
+    } catch (error) {
+        // Handle any errors that occur during the creation of the course
+        console.error(error)
+            res.status(500).json({
+            success: false,
+            message: "Failed to create course",
+            error: error.message,
+        })
+    }
+})
 
 app.get("/", (req, res) => {
 	return res.json({
