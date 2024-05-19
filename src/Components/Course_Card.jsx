@@ -71,10 +71,14 @@ function Course_Card({course}) {
               </button>
             ):(
               <button onClick={()=>handleAddItem(course)} className="blackButton">
-                Buy Now
+                Remove from Cart
               </button>
             )}
+            
           </div>
+          <button onClick={()=>handleAddItem(course)} className="blackButton cursor-pointer w-1/2 rounded-md bg-yellow-500 px-[20px] py-[8px] font-semibold text-black">
+                Buy Now
+          </button>
           </div>
         </div>
     </>

@@ -1,0 +1,16 @@
+[
+    {
+        "image":"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200214165928/Web-Development-Course-Thumbnail.jpg",
+        "title":"WebDev 0-100 course",
+        "price":200,
+        "category":"WebDev"
+    },
+
+    {
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEDk9H8Kwg-1CyE6NZ5wIKNlPEGI7sKlHwlA&usqp=CAU",
+        "title":"Complete Machine Learning course",
+        "price":200,
+        "category":"Machine Learning"
+    }
+    
+]
