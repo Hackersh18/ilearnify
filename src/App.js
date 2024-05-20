@@ -11,6 +11,9 @@ import Login from './Components/LoginForm';
 import Catalog from './Components/Catalog';
 import Cart from './Components/Cart';
 import Questions from './Components/Questions';
+import Failed from './pages/Failed';
+import Success from './pages/Success';
+import Product from './pages/Product';
 
 
 function App() {
@@ -55,12 +58,10 @@ function App() {
               <Contact/>
           }
         />
-        <Route
-          path="catalog"
-          element={
-              <Catalog/>
-          }
-        />
+        {/* <Route
+          path="/catalog"
+          Component={Product}
+        /> */}
         <Route
           path="cart"
           element={
@@ -72,6 +73,18 @@ function App() {
           element={
               <Questions/>
           }
+        />
+        <Route
+          path="/success"
+          Component={Success}
+        />
+         <Route
+          path="/product"
+          Component={Product}
+        />
+        <Route
+          path="/failed"
+          Component={Failed}
         />
     </Routes>
     </div>

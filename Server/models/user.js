@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
         courses: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "Course",
+                ref: "OrderModel",
             },
         ],
 		// Define the role field with type String and enum values of "Admin", "Student", or "Visitor"

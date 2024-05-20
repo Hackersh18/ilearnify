@@ -53,7 +53,7 @@ const Navbar = () => {
                         : "text-[#eeecdd]"
                     }`}
                   >
-                   <Link to="/catalog"> <p className='text-lg m-2'>{link.title}</p></Link>
+                   <Link to="/product"> <p className='text-lg m-2'>{link.title}</p></Link>
                     <BsChevronDown />
                     <div className="absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-white p-4 text-black opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
                       <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-black"></div>
