@@ -13,13 +13,23 @@ const cors = require("cors");
 const {cloudinaryConnect } = require("./config/cloudinary");
 const fileUpload = require("express-fileupload");
 const User = require("./models/User.js");
+const {OrderModel} = require("./models/Order.js")
+const morgan = require("morgan");
+const Razorpay = require('razorpay')
+const crypto = require("crypto")
+const razorpay = new Razorpay({
+    key_id: 'rzp_test_YoaD5WnvwTLPTk',
+    key_secret: 'dfkIL1Agqr9Jl7orhHVTnPHK',
+});
 
 
 
+// app.use(cors())
+app.use(morgan("dev"))
 dotenv.config();
 
 const PORT = process.env.PORT || 4000;
-
+app.use(express.urlencoded({extended:false}))
 //database connect
 database.connect();
 
@@ -44,6 +54,49 @@ app.use(
 //cloudinary connection
 cloudinaryConnect();
 
+app.post("/payment/checkout",async(req,res)=>{
+    const {name,amount} = req.body
+    const order = await razorpay.orders.create({
+        amount: amount*100,  // amount in the smallest currency unit
+        currency: "INR",
+        receipt: "order_rcptid_11"
+    })
+
+    const userCourse = new OrderModel({ // changes here await OrderModel.create
+        order_id:order.id,
+        name:name,
+        amount:amount
+    })
+    const userdata=await userCourse.save()
+    console.log({order})
+    res.json({order})
+})
+app.post("/payment/paymentVerification",async(req,res)=>{
+    const {razorpay_payment_id,razorpay_order_id,razorpay_signature} = req.body
+    const body=razorpay_order_id + "|" +razorpay_payment_id;
+    const expectedSignature = crypto
+    .createHmac("sha256", "dfkIL1Agqr9Jl7orhHVTnPHK")
+    .update(body)
+    .digest("hex"); 
+    const isAuthentic = expectedSignature === razorpay_signature;
+    if(isAuthentic){
+        //database come here
+        await OrderModel.findOne({order_id:razorpay_order_id},{
+            $set:{
+                razorpay_order_id, 
+                razorpay_payment_id, 
+                razorpay_signature,
+                
+            }
+        });
+        res.redirect(`http://localhost:4000/success?payment_id=${razorpay_payment_id}`);
+        return
+    }
+    else{
+        res.redirect("http://localhost:4000/failed");
+        return
+    }
+})
 
 //routes
 //	app.use("/api/v1/auth", userRoutes);
@@ -64,13 +117,14 @@ app.post("/signup", async (req,res)=>{
 			confirmPassword
 		  } = req.body
         if(password==confirmPassword){
-            const user=await User.create({
+            const user=new User({   //changes here User.create
                 firstName:req.body.firstName,
                 lastName:req.body.lastName,
                 email:req.body.email,
                 password:req.body.password,
                 confirmPassword:req.body.confirmPassword
             })
+            const userdata=await user.save()
             return res.status(200).json({
 				success: true,
 				user,
@@ -131,51 +185,51 @@ app.post("/login", async(req,res)=>{
 });
 
 
-app.post("/course",async(req,res)=>{
-    try {
-        const {
-			courseTitle,
-			courseShortDesc,
-			courseCategory,
-			coursePrice,
-            courseBenefits,
-            courseTags,
-            courseRequirements
-		} = req.body
-        if (
-            !courseTitle ||
-            !courseShortDesc ||
-            !courseCategory||
-            !coursePrice ||
-            !courseBenefits||
-            !courseTags||
-            !courseRequirements
-          ) {
-                return res.status(400).json({
-                success: false,
-                message: "All Fields are required",
-                })
-            }
+// app.post("/course",async(req,res)=>{
+//     try {
+//         const {
+// 			courseTitle,
+// 			courseShortDesc,
+// 			courseCategory,
+// 			coursePrice,
+//             courseBenefits,
+//             courseTags,
+//             courseRequirements
+// 		} = req.body
+//         if (
+//             !courseTitle ||
+//             !courseShortDesc ||
+//             !courseCategory||
+//             !coursePrice ||
+//             !courseBenefits||
+//             !courseTags||
+//             !courseRequirements
+//           ) {
+//                 return res.status(400).json({
+//                 success: false,
+//                 message: "All Fields are required",
+//                 })
+//             }
 
-            const newCourse = await Course.create({
-                courseTitle,
-                courseShortDesc,
-                courseCategory,
-                coursePrice,
-                courseBenefits,
-                courseTags,
-                courseRequirements,
-            })
-    } catch (error) {
-        // Handle any errors that occur during the creation of the course
-        console.error(error)
-            res.status(500).json({
-            success: false,
-            message: "Failed to create course",
-            error: error.message,
-        })
-    }
-})
+//             const newCourse = await Course.create({
+//                 courseTitle,
+//                 courseShortDesc,
+//                 courseCategory,
+//                 coursePrice,
+//                 courseBenefits,
+//                 courseTags,
+//                 courseRequirements,
+//             })
+//     } catch (error) {
+//         // Handle any errors that occur during the creation of the course
+//         console.error(error)
+//             res.status(500).json({
+//             success: false,
+//             message: "Failed to create course",
+//             error: error.message,
+//         })
+//     }
+// })
 
 app.get("/", (req, res) => {
 	return res.json({
